@@ -1,6 +1,6 @@
 # Extração de dados de eleição do Brasil 🇧🇷
 
-Este pacote de ferramentas busca facilitar a extração de dados que não foram disponibilizados de forma automática pela apuração.
+Este pacote de ferramentas busca facilitar a extração de dados sobre informações das urnas que não foram disponibilizados de forma automática pela apuração.
 
 ## Download dos arquivos do TSE
 
