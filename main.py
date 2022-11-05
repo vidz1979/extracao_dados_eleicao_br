@@ -55,7 +55,7 @@ if __name__ == "__main__":
                     f.seek(-2, os.SEEK_CUR)
             except OSError:
                 f.seek(0)
-            last_line = f.readline().decode()
+            last_line = f.readline().decode('latin-1')
             last_file = last_line.split(",")[1]
 
         output_file = open(args.output, "a", newline="")
