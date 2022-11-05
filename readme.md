@@ -10,7 +10,7 @@ Procure por "arquivos transmitidos para totalização". No caso de 2022, o link 
 
 Os arquivos são disponibilizados por estado, um para cada turno.
 
-Descompacte os arquivos na data `data/input`.
+> **_DICA:_** Não é necessário descompactar o arquivo zip, o script lê os arquivos .logjez diretamente! Se já possuir os arquivos .logjez descompactado, informe a pasta.
 
 ## Instalação das dependências
 
@@ -18,50 +18,35 @@ Descompacte os arquivos na data `data/input`.
 
 ## Descompressão dos logs de urna
 
-`python unzip_logs.py -h`
+`python main.py -h`
 
 ```
-usage: unzip_logs.py [-h] [--inputdir INPUTDIR] [--outputdir OUTPUTDIR]
+usage: main.py [-h] [--folder FOLDER] [--zip ZIP] [--output OUTPUT]
 
-Busca recursivamente arquivos .logjez no diretorio informado e descompacta o arquivo dentro do diretorio de saida.
+Busca arquivos .logjez e gera arquivo de informações da urna eletrônica. Especifique um diretório ou um arquivo zip contendo arquivos .logjez.
 
 options:
   -h, --help            show this help message and exit
-  --inputdir INPUTDIR, -i INPUTDIR
-                        Diretório raiz para busca
-  --outputdir OUTPUTDIR, -o OUTPUTDIR
-                        Arquivo de saída
-```
-
-Para executar o processo pegando do diretório de input padrão (`data/input`) e saída padrão (`data/output/logs`).
-
-`python unzip_logs.py`
-
-## Extração dos dados da urna
-
-`python extract_dados_urna.py -h`
-
-```
-usage: extract_dados_urna.py [-h] [--inputdir INPUTDIR] [--output OUTPUT]
-
-Extrai dados da urna a partir de arquivos no diretorio (./data/outputs/logs).
-
-options:
-  -h, --help            show this help message and exit
-  --inputdir INPUTDIR, -i INPUTDIR
-                        Diretório de entrada (logs)
+  --folder FOLDER, -f FOLDER
+                        Diretório contendo .logjez
+  --zip ZIP, -z ZIP     Arquivo zip contendo .logjez
   --output OUTPUT, -o OUTPUT
-                        Arquivo de saída
+                        Arquivo de saída. Utiliza por padrão o nome do diretório/zip.
 ```
 
-Para executar o processo pegando do diretório de input padrão (`data/output/logs`) e saída padrão (`data/output/data`).
+Para executar o processo pegando de um arquivo zip (recomendado!):
 
-`python extract_dados_urna.py`
+`python main.py -z 2022_2t_RR.zip`
+
+Para executar o processo pegando de uma pasta:
+
+`python main.py -f 2022_2t_RR`
 
 ## Saída
 
 Os dados extraídos dos logs da urna de cada arquivo são armazenados em arquivo .csv com os seguintes campos:
 
+- Diretório: pasta ou arquivo zip de origem
 - Arquivo: o arquivo de onde a informação foi extraída
 - Município
 - Zona Eleitoral
@@ -74,16 +59,16 @@ Os dados extraídos dos logs da urna de cada arquivo são armazenados em arquivo
 - Serial de votação da MV
 
 ```
-Arquivo,Município,Zona Eleitoral,Local de Votação,Seção Eleitoral,Versão da aplicação,Turno da UE,Identificação do Modelo de Urna,Fase da UE,Serial de votação da MV
-1t_AL__o00406-2871100180246.txt,28711,0018,1198,0246,8.26.0.0 - Onça-pintada,1º turno,UE2020,Oficial,9083DE64
-1t_AL__o00406-2837100080056.txt,28371,0008,1074,0056,8.26.0.0 - Onça-pintada,1º turno,UE2020,Oficial,F276ED66
-1t_AL__o00406-2757000440008.txt,27570,0044,1040,0008,8.26.0.0 - Onça-pintada,1º turno,UE2009,Oficial,7BE138E8
-1t_AL__o00406-2703000480149.txt,27030,0048,1210,0149,8.26.0.0 - Onça-pintada,1º turno,UE2009,Oficial,9E16CD72
+Diretório,Arquivo,Município,Zona Eleitoral,Local de Votação,Seção Eleitoral,Versão da aplicação,Turno da UE,Identificação do Modelo de Urna,Fase da UE,Serial de votação da MV
+2022_2t_RR,o00407-0300000040011.logjez,03000,0004,1015,0011,8.26.0.0 - Onça-pintada,1º turno,UE2015,Oficial,5A434CF5
+2022_2t_RR,o00407-0300000040012.logjez,03000,0004,1015,0012,8.26.0.0 - Onça-pintada,1º turno,UE2015,Oficial,D9BEEE10
+2022_2t_RR,o00407-0300000040013.logjez,03000,0004,1015,0013,8.26.0.0 - Onça-pintada,1º turno,UE2015,Oficial,11549FFC
+2022_2t_RR,o00407-0300000040014.logjez,03000,0004,1023,0014,8.26.0.0 - Onça-pintada,1º turno,UE2020,Oficial,A164149A
+2022_2t_RR,o00407-0300000040015.logjez,03000,0004,1023,0015,8.26.0.0 - Onça-pintada,1º turno,UE2020,Oficial,0E926E87
+2022_2t_RR,o00407-0300000040016.logjez,03000,0004,1031,0016,8.26.0.0 - Onça-pintada,1º turno,UE2020,Oficial,F7C04159
+...
 ```
 
 ## Contribuições
 
 Estou trabalhando para juntar exportar o CSV, mas a quantidade de dados é enorme. Se alguém tiver mais informações ou contribuições, mande PR.
-
-
-

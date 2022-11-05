@@ -1,12 +1,22 @@
 from pathlib import Path
 
 BASE_PATH = Path(__file__).parent.absolute()
-DATA_PATH = BASE_PATH / "data"
-INPUT_PATH = DATA_PATH / "input"
-OUTPUT_PATH = DATA_PATH / "output"
-OUTPUT_LOGS_PATH = OUTPUT_PATH / "logs"
-OUTPUT_DATA_PATH = OUTPUT_PATH / "data"
+OUTPUT_PATH = BASE_PATH / "output"
 
-for path in (DATA_PATH, INPUT_PATH, OUTPUT_PATH, OUTPUT_LOGS_PATH, OUTPUT_DATA_PATH):
+for path in [OUTPUT_PATH]:
     if not path.exists():
         path.mkdir(parents=True)
+
+ATRIBUTOS_BUSCA = [
+    "Município",
+    "Zona Eleitoral",
+    "Local de Votação",
+    "Seção Eleitoral",
+    "Versão da aplicação",
+    "Turno da UE",
+    "Identificação do Modelo de Urna",
+    "Fase da UE",
+    "Serial de votação da MV",
+]
+
+HEADERS = ["Diretório", "Arquivo"] + ATRIBUTOS_BUSCA

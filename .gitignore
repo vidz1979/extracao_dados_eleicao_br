@@ -160,5 +160,5 @@ cython_debug/
 #.idea/
 
 ### arquivos temporarios do projeto
-data/input/*
-data/output/*
+data
+output
