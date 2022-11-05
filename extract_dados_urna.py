@@ -43,7 +43,7 @@ def get_urna_info(file):
             if exit:
                 break
 
-    info["Arquivo"] = file
+    info["Arquivo"] = os.path.split(file)[-1]
     return info
 
 
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     print("Extraindo dados dos arquivos de log")
     print("Diretório de entrada (logs):", args.inputdir)
 
-    with open(args.output, "w") as f:
+    with open(args.output, "w", newline='') as f:
         w = csv.DictWriter(f, HEADERS)
         w.writeheader()
 
@@ -88,5 +88,5 @@ if __name__ == "__main__":
             except IsADirectoryError:
                 print(f"Ignorando: {file} é um diretório.")
                 continue
-
+            
     print("Arquivo de saída:", args.output)

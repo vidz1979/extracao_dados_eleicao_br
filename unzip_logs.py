@@ -2,7 +2,12 @@ import argparse
 import settings
 import py7zr
 import os
+import random
+import string
 
+def get_random_string(length):
+    letters = string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(length))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -38,9 +43,10 @@ if __name__ == "__main__":
                 print("Descomprimindo arquivo:", input_file, "->", output_file)
 
                 archive = py7zr.SevenZipFile(input_file, mode="r")
-                archive.extractall(path="/tmp")
+                id = get_random_string(8)
+                archive.extractall(path=os.path.join("/tmp", id))
                 archive.close()
                 os.replace(
-                    os.path.join("/tmp/logd.dat"),
+                    os.path.join("/tmp", id, "logd.dat"),
                     output_file,
                 )
