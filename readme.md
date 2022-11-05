@@ -75,8 +75,15 @@ Os dados extraídos dos logs da urna de cada arquivo são armazenados em arquivo
 
 ```
 Arquivo,Município,Zona Eleitoral,Local de Votação,Seção Eleitoral,Versão da aplicação,Turno da UE,Identificação do Modelo de Urna,Fase da UE,Serial de votação da MV
-/Users/junior/dev/eleicoes/data/output/logs/bu_imgbu_logjez_rdv_vscmr_2022_1t_AL__o00406-2871100180246.txt,28711,0018,1198,0246,8.26.0.0 - Onça-pintada,1º turno,UE2020,Oficial,9083DE64
-/Users/junior/dev/eleicoes/data/output/logs/bu_imgbu_logjez_rdv_vscmr_2022_1t_AL__o00406-2837100080056.txt,28371,0008,1074,0056,8.26.0.0 - Onça-pintada,1º turno,UE2020,Oficial,F276ED66
-/Users/junior/dev/eleicoes/data/output/logs/bu_imgbu_logjez_rdv_vscmr_2022_1t_AL__o00406-2757000440008.txt,27570,0044,1040,0008,8.26.0.0 - Onça-pintada,1º turno,UE2009,Oficial,7BE138E8
-/Users/junior/dev/eleicoes/data/output/logs/bu_imgbu_logjez_rdv_vscmr_2022_1t_AL__o00406-2703000480149.txt,27030,0048,1210,0149,8.26.0.0 - Onça-pintada,1º turno,UE2009,Oficial,9E16CD72
+1t_AL__o00406-2871100180246.txt,28711,0018,1198,0246,8.26.0.0 - Onça-pintada,1º turno,UE2020,Oficial,9083DE64
+1t_AL__o00406-2837100080056.txt,28371,0008,1074,0056,8.26.0.0 - Onça-pintada,1º turno,UE2020,Oficial,F276ED66
+1t_AL__o00406-2757000440008.txt,27570,0044,1040,0008,8.26.0.0 - Onça-pintada,1º turno,UE2009,Oficial,7BE138E8
+1t_AL__o00406-2703000480149.txt,27030,0048,1210,0149,8.26.0.0 - Onça-pintada,1º turno,UE2009,Oficial,9E16CD72
 ```
+
+## Contribuições
+
+Estou trabalhando para juntar exportar o CSV, mas a quantidade de dados é enorme. Se alguém tiver mais informações ou contribuições, mande PR.
+
+
+
